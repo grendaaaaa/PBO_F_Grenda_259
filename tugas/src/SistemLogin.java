@@ -8,6 +8,7 @@ public class SistemLogin {
         do {
             loginUlang = false;
 
+            // demo w1
             // Menampilkan pilihan login
             System.out.println("Pilih jenis login:");
             System.out.println("1. Admin");
