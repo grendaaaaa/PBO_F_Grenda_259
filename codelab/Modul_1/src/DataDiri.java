@@ -3,22 +3,22 @@ import java.time.LocalDate;
 
 public class DataDiri {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner objinp = new Scanner(System.in);
 
         // Input nama
         System.out.print("Masukkan nama: ");
-        String nama = scanner.nextLine();
+        String nama = objinp.nextLine();
 
         // Input jenis kelamin
         System.out.print("Masukkan jenis kelamin (P/L): ");
-        char jenisKelamin = scanner.next().charAt(0);
+        char jenisKelamin = objinp.next().charAt(0);
 
         // Input tahun lahir
         System.out.print("Masukkan tahun lahir: ");
-        int tahunLahir = scanner.nextInt();
+        int tahunLahir = objinp.nextInt();
 
         // Menutup scanner
-        scanner.close();
+        objinp.close();
 
         // Menghitung umur
         int tahunSekarang = LocalDate.now().getYear();
