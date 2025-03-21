@@ -5,7 +5,7 @@ public class DataDiri {
     public static void main(String[] args) {
         Scanner objinp = new Scanner(System.in);
 
-        // Input nama
+        // Input namah
         System.out.print("Masukkan nama: ");
         String nama = objinp.nextLine();
 
