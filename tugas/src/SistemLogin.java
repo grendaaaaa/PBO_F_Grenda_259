@@ -1,41 +1,6 @@
 import java.util.Scanner;
 
-// Kelas Admin
-class Admin {
-    String username;
-    String password;
-
-    public Admin(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public boolean validLogin(String inputUsername, String inputPassword) {
-        return this.username.equals(inputUsername) && this.password.equals(inputPassword);
-    }
-}
-
-// Kelas Mahasiswa
-class Mahasiswa {
-    String nama;
-    String nim;
-
-    public Mahasiswa(String nama, String nim) {
-        this.nama = nama;
-        this.nim = nim;
-    }
-
-    public boolean isValid(String inputNama, String inputNim) {
-        return this.nama.equals(inputNama) && this.nim.equals(inputNim);
-    }
-
-    public void displayInfo() {
-        System.out.println("Nama Mahasiswa: " + nama);
-        System.out.println("NIM Mahasiswa: " + nim);
-    }
-}
-
-// Kelas utama SistemLogin
+// Kelas utama: SistemLogin
 public class SistemLogin {
     public static void main(String[] args) {
         Scanner objinp = new Scanner(System.in);
@@ -48,7 +13,7 @@ public class SistemLogin {
             System.out.println("2. Mahasiswa");
             System.out.print("Masukkan pilihan: ");
             int pilihan = objinp.nextInt();
-            objinp.nextLine(); // Membersihkan buffer
+            objinp.nextLine(); // Clear buffer
 
             if (pilihan == 1) {
                 // Login Admin
@@ -57,13 +22,14 @@ public class SistemLogin {
                 System.out.print("Masukkan password: ");
                 String password = objinp.nextLine();
 
-                Admin admin = new Admin("Admin259", "password259");
-                if (admin.validLogin(username, password)) {
-                    System.out.println("Login Admin berhasil!");
+                Admin admin = new Admin("Admin judol", "202410370110259", "Admin259", "password259");
+                if (admin.login(username, password)) {
+                    admin.displayInfo();
                 } else {
                     System.out.println("Login gagal! Username atau password salah.");
                     loginUlang = promptLoginUlang(objinp);
                 }
+
             } else if (pilihan == 2) {
                 // Login Mahasiswa
                 System.out.print("Masukkan nama: ");
@@ -71,14 +37,14 @@ public class SistemLogin {
                 System.out.print("Masukkan NIM: ");
                 String nim = objinp.nextLine();
 
-                Mahasiswa mahasiswa = new Mahasiswa("Grenda Agriansyah", "202410370110259");
-                if (mahasiswa.isValid(nama, nim)) {
-                    System.out.println("Login Mahasiswa berhasil!");
-                    mahasiswa.displayInfo();
+                Mahasiswa mhs = new Mahasiswa("Grenda Agriansyah", "202410370110259");
+                if (mhs.login(nama, nim)) {
+                    mhs.displayInfo();
                 } else {
                     System.out.println("Login gagal! Nama atau NIM salah.");
                     loginUlang = promptLoginUlang(objinp);
                 }
+
             } else {
                 System.out.println("Pilihan tidak valid!");
                 loginUlang = promptLoginUlang(objinp);
